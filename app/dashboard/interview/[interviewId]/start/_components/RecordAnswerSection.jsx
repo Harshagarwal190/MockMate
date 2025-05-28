@@ -14,7 +14,7 @@ import { db } from "@/utils/db";
 
 // ✅ Initialize AI Model
 const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 function RecordAnswerSection({
   mockInterviewQuestion,
@@ -25,11 +25,16 @@ function RecordAnswerSection({
   const { user } = useUser();
   const [loading, setLoading] = useState(false);
 
-  const { isRecording, results, startSpeechToText, stopSpeechToText,setResults } =
-    useSpeechToText({
-      continuous: true,
-      useLegacyResults: false,
-    });
+  const {
+    isRecording,
+    results,
+    startSpeechToText,
+    stopSpeechToText,
+    setResults,
+  } = useSpeechToText({
+    continuous: true,
+    useLegacyResults: false,
+  });
 
   // ✅ Capture latest transcript from speech-to-text
   useEffect(() => {
@@ -134,7 +139,7 @@ function RecordAnswerSection({
           width={200}
           height={200}
           className="absolute"
-           alt="Webcam preview"
+          alt="Webcam preview"
         />
         <Webcam
           mirrored={true}
