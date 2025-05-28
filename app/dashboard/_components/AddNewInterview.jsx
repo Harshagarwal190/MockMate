@@ -19,9 +19,9 @@ import { useUser } from "@clerk/nextjs";
 import moment from "moment";
 import { useRouter } from "next/navigation";
 
-const API_KEY = "AIzaSyAh1gC2gD53eNnMionD6rKkaPML41mZSS8";
+const API_KEY = "AIzaSyAQDJI-0AfZ4hgee1PVJVa7c7AyDYqgvlc";
 const genAI = new GoogleGenerativeAI(API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 function AddNewInterview() {
     const [openDialog, setOpenDialog] = useState(false);
